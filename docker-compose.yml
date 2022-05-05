@@ -1,0 +1,64 @@
+version: '3.7'
+services:
+  api:
+    container_name: appApi
+    build:
+      context: ./
+      dockerfile: ./docker/api/Dockerfile
+    ports:
+      - 9000:9000
+    volumes:
+      - .:/var/www
+      - /var/www/vendor
+      - ./docker/api/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - db
+    tty: true
+    networks:
+      - app_network
+
+  db:
+    container_name: appDb
+    build:
+      context: ./
+      dockerfile: ./docker/db/Dockerfile
+    environment:
+      MYSQL_DATABASE: db_ezoom
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 33066:3306
+    tty: true
+    networks:
+      - app_network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    container_name: appNginx
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/log:/var/log/nginx
+    ports:
+      - 8000:80
+      - 4443:443
+    tty: true
+    networks:
+      - app_network
+    depends_on:
+      - api
+
+  redis:
+    image: redis:latest
+    container_name: appRedis
+    ports:
+      - "6378:6379"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
