@@ -7,6 +7,8 @@ services:
       dockerfile: ./docker/api/Dockerfile
     ports:
       - 9000:9000
+       # Port for xdebug
+      - 9003:9003
     volumes:
       - .:/var/www
       - /var/www/vendor

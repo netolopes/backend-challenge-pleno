@@ -1,6 +1,6 @@
 ARG HANDLE_FILES
 
-FROM php:8.0.10-fpm AS base
+FROM php:8.0.14-fpm AS base
 
 WORKDIR /var/www
 
@@ -21,10 +21,10 @@ RUN apt-get install -y unzip
 RUN apt-get install -y git
 RUN apt-get install -y curl
 RUN apt-get install -y nano
-RUN apt-get install -y librdkafka-dev
+#RUN apt-get install -y librdkafka-dev
 RUN apt-get install -y iputils-ping
 
-RUN pecl install rdkafka
+#RUN pecl install rdkafka
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -44,7 +44,12 @@ RUN docker-php-ext-configure gd
 # RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install opcache
-RUN docker-php-ext-enable rdkafka
+#RUN docker-php-ext-enable rdkafka
+
+# # install and enable xdebug
+# RUN apk add --no-cache $PHPIZE_DEPS \
+# 	&& pecl install xdebug-2.9.7 \
+# 	&& docker-php-ext-enable xdebug
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
