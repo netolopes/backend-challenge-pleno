@@ -10,11 +10,11 @@
       <link  href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
       <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
    </head>
-   <body>
+   <body class="back">
       <div class="container-fluid mt-2">
          <div class="row">
             <div class="col-lg-12 margin-tb">
-               <div class="pull-left">
+               <div style="color:white"  class="pull-left">
                   <h2>Categorias</h2>
                </div>
                <div class="pull-right mb-2">
@@ -199,4 +199,10 @@
 
     });
    </script>
+        <style>
+            .back{
+               background-image: linear-gradient(to left bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            }
+
+       </style>
 </html>

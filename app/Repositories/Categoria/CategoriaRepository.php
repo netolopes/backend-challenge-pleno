@@ -28,12 +28,6 @@ class CategoriaRepository implements ICategoriaRepository {
             'descricao' => $descricao
         ]);
 
-        $data = [
-            'nome' => $nome,
-            'descricao' => $descricao
-        ];
-
-
        return $result;
     }
 
