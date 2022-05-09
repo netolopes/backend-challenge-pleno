@@ -13,9 +13,9 @@ docker-compose  up -d
 
 #docker ps (tem q listar algo parecido cm isso)
 CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                                                                  NAMES
-abcedd80f56e   backezoom_nginx   "/docker-entrypoint.…"   9 minutes ago    Up 9 minutes    0.0.0.0:8000->80/tcp, :::8000->80/tcp, 0.0.0.0:4443->443/tcp, :::4443->443/tcp         appNginx
-f20a91b87e8e   backezoom_api     "docker-php-entrypoi…"   10 minutes ago   Up 9 minutes    0.0.0.0:9000->9000/tcp, :::9000->9000/tcp, 0.0.0.0:9003->9003/tcp, :::9003->9003/tcp   appApi
-0c45ff68b7d5   backezoom_db      "docker-entrypoint.s…"   10 minutes ago   Up 22 seconds   0.0.0.0:33066->3306/tcp, :::33066->3306/tcp                                            appDb
+abcedd80f56e   backezoom_nginx   ...  appNginx
+f20a91b87e8e   backezoom_api     ...  appApi
+0c45ff68b7d5   backezoom_db     ...   appDb
 
 #Entrar no container docker
 docker exec -it appApi bash   (bin/sh ou bin/bash)
