@@ -10,13 +10,6 @@ http://localhost:8000/front
 #rodar e subir os containers docker
 docker-compose  up -d
 
-
-#docker ps (tem q listar algo parecido cm isso)
-CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                                                                                  NAMES
-abcedd80f56e   backezoom_nginx   ...  appNginx
-f20a91b87e8e   backezoom_api     ...  appApi
-0c45ff68b7d5   backezoom_db     ...   appDb
-
 #Entrar no container docker
 docker exec -it appApi bash   (bin/sh ou bin/bash)
 
