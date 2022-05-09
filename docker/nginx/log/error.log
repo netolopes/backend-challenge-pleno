@@ -1,1 +1,2 @@
 2022/05/05 19:50:13 [emerg] 1#1: host not found in upstream "app" in /etc/nginx/conf.d/app.conf:10
+2022/05/08 14:01:52 [emerg] 1#1: host not found in upstream "api" in /etc/nginx/conf.d/app.conf:10

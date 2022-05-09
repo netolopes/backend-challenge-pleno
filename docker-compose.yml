@@ -53,13 +53,13 @@ services:
     depends_on:
       - api
 
-  redis:
-    image: redis:latest
-    container_name: appRedis
-    ports:
-      - "6378:6379"
-    networks:
-      - app_network
+#   redis:
+#     image: redis:latest
+#     container_name: appRedis
+#     ports:
+#       - "6378:6379"
+#     networks:
+#       - app_network
 
 networks:
   app_network:
